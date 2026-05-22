@@ -242,7 +242,7 @@ function submitOrderRequest() {
     .catch(() => showToast('❌ Ошибка соединения с сервером'));
 }
 
-// === АВТОМАТИЧЕСКАЯ ИНИЦИАЛИЗАЦИЯ ===
+
 function initPage() {
     updateCartCountDisplay();
     if (document.getElementById('newProductsGrid')) renderNewProducts();

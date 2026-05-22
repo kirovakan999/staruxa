@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Каталог автозвука | PACARANA SOUND</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="navbar">
+            <a class="logo" href="index.html">🎵 PACARANA SOUND</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link active-link">Каталог</a>
+                <a href="install.html" class="nav-link">Установка</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+                <a href="cart.html" class="cart-icon">🛒 Корзина <span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="page-padding">
+            <h2 class="section-title">📚 Каталог автозвука</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">Все товары</button>
+                <button class="filter-btn" data-category="amplifiers">🔊 Усилители</button>
+                <button class="filter-btn" data-category="headunits">📻 Головные устройства</button>
+                <button class="filter-btn" data-category="subwoofers">🥁 Сабвуферы</button>
+                <button class="filter-btn" data-category="speakers">🎵 Динамики</button>
+                <button class="filter-btn" data-category="sounddeadening">🔇 Шумоизоляция</button>
+                <button class="filter-btn" data-category="wires">🔌 Провода</button>
+            </div>
+            <div class="products-count" id="productsCount">Показано: 0 товаров</div>
+            <div class="products-grid" id="catalogGrid"></div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 CarAudioPro — Магазин автозвука и профессиональная установка</p>
+        <p>📞 +7 (918) 953-96-00 | ✉️ xakerman01@mail.ru | 📍 г. Курганинск, ул. Островского 115А</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

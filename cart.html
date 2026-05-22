@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Корзина | PACARANA SOUND</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="navbar">
+            <a class="logo" href="index.html">🎵 PACARANA SOUND</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="install.html" class="nav-link">Установка</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+                <a href="cart.html" class="cart-icon active-link">🛒 Корзина <span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="page-padding">
+            <h2 class="section-title">🛒 Моя корзина</h2>
+            <div id="cartPageContent">
+                <ul id="cartItemsList" class="cart-items"></ul>
+                <div class="cart-total" id="cartTotal">Итого: 0 ₽</div>
+                <div class="cart-buttons">
+                    <button class="btn-clear" id="clearCartBtn">Очистить корзину</button>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>📝 Оформить заказ / запись на установку</h3>
+                <input type="text" id="orderName" placeholder="Ваше имя" required>
+                <input type="tel" id="orderPhone" placeholder="Номер телефона" required>
+                <textarea id="orderMessage" placeholder="Опишите, что нужно установить (модель авто, какие работы)"></textarea>
+                <button id="submitOrderBtn">Отправить заявку</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Pacarana Sound — Магазин автозвука и профессиональная установка</p>
+        <p>📞 +7 (918) 953-96-00 | ✉️ xakerman01@mail.ru | 📍 г. Курганинск, ул. Островского 115А</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

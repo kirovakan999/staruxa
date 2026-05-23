@@ -24,12 +24,12 @@ const products = [
     { id: 18, name: "Коаксиальная акустика Morel Maximo 6", brand: "Morel", price: 12990, category: "speakers", image: "images/Коаксиальная акустика Morel Maximo 6.jpg", specs: "16.5 см, 80 Вт", isNew: false },
     { id: 19, name: "Компонентная акустика Focal ISU 165", brand: "Focal", price: 24990, category: "speakers", image: "images/Компонентная акустика Focal ISU 165.jpg", specs: "16.5 см, 120 Вт", isNew: false },
     { id: 20, name: "Широкополосные динамики JL Audio C2-650", brand: "JL Audio", price: 15990, category: "speakers", image: "images/Широкополосные динамики JL Audio C2-650.jpg", specs: "16.5 см, 60 Вт", isNew: false },
-    { id: 21, name: "Пищалки Audison AP 1", brand: "Audison", price: 5990, category: "speakers", image: "images/audison_tweet.jpg", specs: "1'', 50 Вт, шелк", isNew: false },
-    { id: 22, name: "Динамики Pioneer TS-G1320F", brand: "Pioneer", price: 3990, category: "speakers", image: "images/pioneer_speaker.jpg", specs: "13 см, 200 Вт", isNew: false },
+    { id: 21, name: "Пищалки Audison AP 1", brand: "Audison", price: 5990, category: "speakers", image: "images/Пищалки Audison AP 1.jpg", specs: "1'', 50 Вт, шелк", isNew: false },
+    { id: 22, name: "Динамики Pioneer TS-G1320F", brand: "Pioneer", price: 3990, category: "speakers", image: "images/Динамики Pioneer TS-G1320F.jpg", specs: "13 см, 200 Вт", isNew: false },
     // Шумка
-    { id: 23, name: "Шумоизоляция STP Silver", brand: "STP", price: 3490, category: "sounddeadening", image: "images/stp_silver.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: true },
-    { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/silentcoat.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
-    { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/shumoff.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },
+    { id: 23, name: "Шумоизоляция STP Silver", brand: "STP", price: 3490, category: "sounddeadening", image: "images/Шумоизоляция STP Silver.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: true },
+    { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/Шумоизоляция Silent Coat 2mm.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
+    { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/iВибропоглотитель Shumoff M2.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },
     { id: 26, name: "Шумоизоляция комплект на 4 двери", brand: "STP", price: 12990, category: "sounddeadening", image: "images/stp_kit.jpg", specs: "4 листа + ролик", isNew: false },
     // Провода
     { id: 27, name: "Акустический кабель 2x2.5 мм² (10м)", brand: "Daxx", price: 1890, category: "wires", image: "images/cable_audio.jpg", specs: "10 м, OFC медь", isNew: false },

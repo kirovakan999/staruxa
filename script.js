@@ -1,32 +1,32 @@
 // ---------- ТОВАРЫ (30 штук с категориями) ----------
 const products = [
-    // Усилители
+    // Усилителки
     { id: 1, name: "Усилитель Audison SR 4.300", brand: "Audison", price: 27990, category: "amplifiers", image: "images/Audison SR 4.300.jpg", specs: "4 x 75 Вт, Class AB", isNew: true },
     { id: 2, name: "Усилитель Helix M FOUR DSP", brand: "Helix", price: 49990, category: "amplifiers", image: "images/Усилитель Helix M FOUR DSP.jpg", specs: "4 x 120 Вт, DSP", isNew: true },
     { id: 3, name: "Усилитель Hertz HCP 4D", brand: "Hertz", price: 18990, category: "amplifiers", image: "images/Усилитель Hertz HCP 4D.jpg", specs: "4 x 80 Вт, Class D", isNew: false },
     { id: 4, name: "Моноблок JL Audio JD1000/1", brand: "JL Audio", price: 35990, category: "amplifiers", image: "images/Моноблок JL Audio JD10001.jpg", specs: "1000 Вт, Class D", isNew: false },
     { id: 5, name: "Усилитель Alpine S2-A55V", brand: "Alpine", price: 15990, category: "amplifiers", image: "images/Усилитель Alpine S2-A55V.jpg", specs: "4 x 50 Вт", isNew: false },
-    { id: 6, name: "Усилитель Kicx STM 4.300", brand: "Kicx", price: 12990, category: "amplifiers", image: "images/kicx.jpg", specs: "4 x 80 Вт", isNew: false },
-    // Головные устройства
-    { id: 7, name: "Магнитола Pioneer MVH-S520BT", brand: "Pioneer", price: 14990, category: "headunits", image: "images/pioneer.jpg", specs: "Bluetooth, USB, 1 DIN", isNew: true },
-    { id: 8, name: "ГУ Sony XAV-AX5650", brand: "Sony", price: 39990, category: "headunits", image: "images/sony.jpg", specs: "CarPlay, Android Auto, 6.95''", isNew: true },
-    { id: 9, name: "Магнитола Kenwood DMX8021DABS", brand: "Kenwood", price: 54990, category: "headunits", image: "images/kenwood.jpg", specs: "CarPlay, DAB+, 6.8''", isNew: false },
-    { id: 10, name: "ГУ Alpine iLX-W690D", brand: "Alpine", price: 47990, category: "headunits", image: "images/alpine_gu.jpg", specs: "CarPlay, Android Auto, 7''", isNew: false },
-    { id: 11, name: "Магнитола JVC KW-M560BT", brand: "JVC", price: 24990, category: "headunits", image: "images/jvc.jpg", specs: "CarPlay, 6.8''", isNew: false },
+    { id: 6, name: "Усилитель Kicx STM 4.300", brand: "Kicx", price: 12990, category: "amplifiers", image: "images/Усилитель Kicx STM 4.300.jpg", specs: "4 x 80 Вт", isNew: false },
+    // Мафон
+    { id: 7, name: "Магнитола Pioneer MVH-S520BT", brand: "Pioneer", price: 14990, category: "headunits", image: "images/Магнитола Pioneer MVH-S520BT.jpg", specs: "Bluetooth, USB, 1 DIN", isNew: true },
+    { id: 8, name: "ГУ Sony XAV-AX5650", brand: "Sony", price: 39990, category: "headunits", image: "images/ГУ Sony XAV-AX5650.jpg", specs: "CarPlay, Android Auto, 6.95''", isNew: true },
+    { id: 9, name: "Магнитола Kenwood DMX8021DABS", brand: "Kenwood", price: 54990, category: "headunits", image: "images/Магнитола Kenwood DMX8021DABS.jpg", specs: "CarPlay, DAB+, 6.8''", isNew: false },
+    { id: 10, name: "ГУ Alpine iLX-W690D", brand: "Alpine", price: 47990, category: "headunits", image: "images/ГУ Alpine iLX-W690D.jpg", specs: "CarPlay, Android Auto, 7''", isNew: false },
+    { id: 11, name: "Магнитола JVC KW-M560BT", brand: "JVC", price: 24990, category: "headunits", image: "images/Магнитола JVC KW-M560BT.jpg", specs: "CarPlay, 6.8''", isNew: false },
     // Сабвуферы
-    { id: 12, name: "Сабвуфер JL Audio 12W3v3-4", brand: "JL Audio", price: 35990, category: "subwoofers", image: "images/jl_sub.jpg", specs: "12'', 500 Вт, 4 Ом", isNew: true },
-    { id: 13, name: "Сабвуфер Kicx ICQ 301BA", brand: "Kicx", price: 12990, category: "subwoofers", image: "images/kicx_sub.jpg", specs: "12'', 300 Вт, активный", isNew: false },
-    { id: 14, name: "Сабвуфер Hertz MPS 250 S4", brand: "Hertz", price: 21990, category: "subwoofers", image: "images/hertz_sub.jpg", specs: "10'', 400 Вт, 4 Ом", isNew: false },
-    { id: 15, name: "Сабвуфер Alpine SWE-815", brand: "Alpine", price: 18990, category: "subwoofers", image: "images/alpine_sub.jpg", specs: "8'', 150 Вт, активный", isNew: false },
-    { id: 16, name: "Сабвуфер Pioneer TS-WX130DA", brand: "Pioneer", price: 15990, category: "subwoofers", image: "images/pioneer_sub.jpg", specs: "8'', 160 Вт, активный", isNew: false },
+    { id: 12, name: "Сабвуфер JL Audio 12W3v3-4", brand: "JL Audio", price: 35990, category: "subwoofers", image: "images/Сабвуфер JL Audio 12W3v3-4.jpg", specs: "12'', 500 Вт, 4 Ом", isNew: true },
+    { id: 13, name: "Сабвуфер Kicx ICQ 301BA", brand: "Kicx", price: 12990, category: "subwoofers", image: "images/Сабвуфер Kicx ICQ 301BA.jpg", specs: "12'', 300 Вт, активный", isNew: false },
+    { id: 14, name: "Сабвуфер Hertz MPS 250 S4", brand: "Hertz", price: 21990, category: "subwoofers", image: "images/Сабвуфер Hertz MPS 250 S4.jpg", specs: "10'', 400 Вт, 4 Ом", isNew: false },
+    { id: 15, name: "Сабвуфер Alpine SWE-815", brand: "Alpine", price: 18990, category: "subwoofers", image: "images/Сабвуфер Alpine SWE-815.jpg", specs: "8'', 150 Вт, активный", isNew: false },
+    { id: 16, name: "Сабвуфер Pioneer TS-WX130DA", brand: "Pioneer", price: 15990, category: "subwoofers", image: "images/Сабвуфер Pioneer TS-WX130DA.jpg", specs: "8'', 160 Вт, активный", isNew: false },
     // Динамики
-    { id: 17, name: "Компонентная акустика Hertz MPK 165.3", brand: "Hertz", price: 18990, category: "speakers", image: "images/hertz_comp.jpg", specs: "16.5 см, 100 Вт", isNew: true },
-    { id: 18, name: "Коаксиальная акустика Morel Maximo 6", brand: "Morel", price: 12990, category: "speakers", image: "images/morel.jpg", specs: "16.5 см, 80 Вт", isNew: false },
-    { id: 19, name: "Компонентная акустика Focal ISU 165", brand: "Focal", price: 24990, category: "speakers", image: "images/focal.jpg", specs: "16.5 см, 120 Вт", isNew: false },
-    { id: 20, name: "Широкополосные динамики JL Audio C2-650", brand: "JL Audio", price: 15990, category: "speakers", image: "images/jl_speaker.jpg", specs: "16.5 см, 60 Вт", isNew: false },
+    { id: 17, name: "Компонентная акустика Hertz MPK 165.3", brand: "Hertz", price: 18990, category: "speakers", image: "images/Компонентная акустика Hertz MPK 165.3.jpg", specs: "16.5 см, 100 Вт", isNew: true },
+    { id: 18, name: "Коаксиальная акустика Morel Maximo 6", brand: "Morel", price: 12990, category: "speakers", image: "images/Коаксиальная акустика Morel Maximo 6.jpg", specs: "16.5 см, 80 Вт", isNew: false },
+    { id: 19, name: "Компонентная акустика Focal ISU 165", brand: "Focal", price: 24990, category: "speakers", image: "images/Компонентная акустика Focal ISU 165.jpg", specs: "16.5 см, 120 Вт", isNew: false },
+    { id: 20, name: "Широкополосные динамики JL Audio C2-650", brand: "JL Audio", price: 15990, category: "speakers", image: "images/Широкополосные динамики JL Audio C2-650.jpg", specs: "16.5 см, 60 Вт", isNew: false },
     { id: 21, name: "Пищалки Audison AP 1", brand: "Audison", price: 5990, category: "speakers", image: "images/audison_tweet.jpg", specs: "1'', 50 Вт, шелк", isNew: false },
     { id: 22, name: "Динамики Pioneer TS-G1320F", brand: "Pioneer", price: 3990, category: "speakers", image: "images/pioneer_speaker.jpg", specs: "13 см, 200 Вт", isNew: false },
-    // Шумоизоляция
+    // Шумка
     { id: 23, name: "Шумоизоляция STP Silver", brand: "STP", price: 3490, category: "sounddeadening", image: "images/stp_silver.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: true },
     { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/silentcoat.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
     { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/shumoff.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },

@@ -3,9 +3,9 @@ const products = [
     // Усилители
     { id: 1, name: "Усилитель Audison SR 4.300", brand: "Audison", price: 27990, category: "amplifiers", image: "images/Audison SR 4.300.jpg", specs: "4 x 75 Вт, Class AB", isNew: true },
     { id: 2, name: "Усилитель Helix M FOUR DSP", brand: "Helix", price: 49990, category: "amplifiers", image: "images/Усилитель Helix M FOUR DSP.jpg", specs: "4 x 120 Вт, DSP", isNew: true },
-    { id: 3, name: "Усилитель Hertz HCP 4D", brand: "Hertz", price: 18990, category: "amplifiers", image: "images/hertz.jpg", specs: "4 x 80 Вт, Class D", isNew: false },
-    { id: 4, name: "Моноблок JL Audio JD1000/1", brand: "JL Audio", price: 35990, category: "amplifiers", image: "images/jlaudio.jpg", specs: "1000 Вт, Class D", isNew: false },
-    { id: 5, name: "Усилитель Alpine S2-A55V", brand: "Alpine", price: 15990, category: "amplifiers", image: "images/alpine.jpg", specs: "4 x 50 Вт", isNew: false },
+    { id: 3, name: "Усилитель Hertz HCP 4D", brand: "Hertz", price: 18990, category: "amplifiers", image: "images/Усилитель Hertz HCP 4D.jpg", specs: "4 x 80 Вт, Class D", isNew: false },
+    { id: 4, name: "Моноблок JL Audio JD1000/1", brand: "JL Audio", price: 35990, category: "amplifiers", image: "images/Моноблок JL Audio JD10001.jpg", specs: "1000 Вт, Class D", isNew: false },
+    { id: 5, name: "Усилитель Alpine S2-A55V", brand: "Alpine", price: 15990, category: "amplifiers", image: "images/Усилитель Alpine S2-A55V.jpg", specs: "4 x 50 Вт", isNew: false },
     { id: 6, name: "Усилитель Kicx STM 4.300", brand: "Kicx", price: 12990, category: "amplifiers", image: "images/kicx.jpg", specs: "4 x 80 Вт", isNew: false },
     // Головные устройства
     { id: 7, name: "Магнитола Pioneer MVH-S520BT", brand: "Pioneer", price: 14990, category: "headunits", image: "images/pioneer.jpg", specs: "Bluetooth, USB, 1 DIN", isNew: true },

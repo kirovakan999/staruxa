@@ -30,7 +30,7 @@ const products = [
     { id: 23, name: "Шумоизоляция STP Silver", brand: "STP", price: 3490, category: "sounddeadening", image: "images/Шумоизоляция STP Silver.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: true },
     { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/Шумоизоляция Silent Coat 2mm.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
     { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/iВибропоглотитель Shumoff M2.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },
-    { id: 26, name: "Шумоизоляция комплект на 4 двери", brand: "STP", price: 12990, category: "sounddeadening", image: "images/stp_kit.jpg", specs: "4 листа + ролик", isNew: false },
+    { id: 26, name: "Шумоизоляция комплект на 4 двери", brand: "STP", price: 12990, category: "sounddeadening", image: "images/Шумоизоляция комплект на 4 двери.jpg", specs: "4 листа + ролик", isNew: false },
     // Провода
     { id: 27, name: "Акустический кабель 2x2.5 мм² (10м)", brand: "Daxx", price: 1890, category: "wires", image: "images/cable_audio.jpg", specs: "10 м, OFC медь", isNew: false },
     { id: 28, name: "Силовой кабель 4 GA (10м)", brand: "Daxx", price: 2990, category: "wires", image: "images/cable_power.jpg", specs: "10 м, 25 мм², OFC", isNew: false },

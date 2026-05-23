@@ -1,6 +1,6 @@
 // ---------- ТОВАРЫ (30 штук с категориями) ----------
 const products = [
-    // Усилителки
+    // Усилки
     { id: 1, name: "Усилитель Audison SR 4.300", brand: "Audison", price: 27990, category: "amplifiers", image: "images/Audison SR 4.300.jpg", specs: "4 x 75 Вт, Class AB", isNew: true },
     { id: 2, name: "Усилитель Helix M FOUR DSP", brand: "Helix", price: 49990, category: "amplifiers", image: "images/Усилитель Helix M FOUR DSP.jpg", specs: "4 x 120 Вт, DSP", isNew: true },
     { id: 3, name: "Усилитель Hertz HCP 4D", brand: "Hertz", price: 18990, category: "amplifiers", image: "images/Усилитель Hertz HCP 4D.jpg", specs: "4 x 80 Вт, Class D", isNew: false },
@@ -31,7 +31,7 @@ const products = [
     { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/Шумоизоляция Silent Coat 2mm.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
     { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/iВибропоглотитель Shumoff M2.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },
     { id: 26, name: "Шумоизоляция комплект на 4 двери", brand: "STP", price: 12990, category: "sounddeadening", image: "images/Шумоизоляция комплект на 4 двери.jpg", specs: "4 листа + ролик", isNew: false },
-    // Провода
+    // Проводка
     { id: 27, name: "Акустический кабель 2x2.5 мм² (10м)", brand: "Daxx", price: 1890, category: "wires", image: "images/Акустический кабель 2x2.5 мм² (10м).jpg", specs: "10 м, OFC медь", isNew: false },
     { id: 28, name: "Силовой кабель 4 GA (10м)", brand: "Daxx", price: 2990, category: "wires", image: "images/Силовой кабель 4 GA (10м).jpg", specs: "10 м, 25 мм², OFC", isNew: false },
     { id: 29, name: "RCA кабель 5м (2 канала)", brand: "Audison", price: 1490, category: "wires", image: "images/RCA кабель 5м (2 канала).jpg", specs: "5 м, экранированный", isNew: false },

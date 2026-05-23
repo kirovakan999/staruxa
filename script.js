@@ -35,7 +35,7 @@ const products = [
     { id: 27, name: "Акустический кабель 2x2.5 мм² (10м)", brand: "Daxx", price: 1890, category: "wires", image: "images/Акустический кабель 2x2.5 мм² (10м).jpg", specs: "10 м, OFC медь", isNew: false },
     { id: 28, name: "Силовой кабель 4 GA (10м)", brand: "Daxx", price: 2990, category: "wires", image: "images/Силовой кабель 4 GA (10м).jpg", specs: "10 м, 25 мм², OFC", isNew: false },
     { id: 29, name: "RCA кабель 5м (2 канала)", brand: "Audison", price: 1490, category: "wires", image: "images/RCA кабель 5м (2 канала).jpg", specs: "5 м, экранированный", isNew: false },
-    { id: 30, name: "Комплект проводов для усилителя", brand: "Kicx", price: 3990, category: "wires", image: "images/kicx_kit.jpg", specs: "4 GA, 5м + RCA", isNew: false }
+    { id: 30, name: "Комплект проводов для усилителя", brand: "Kicx", price: 3990, category: "wires", image: "images/Комплект проводов для усилителя.jpg", specs: "4 GA, 5м + RCA", isNew: false }
 ];
 
 // ---------- КОРЗИНА (localStorage) ----------

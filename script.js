@@ -205,7 +205,6 @@ function setPhoneMask() {
             this.value = '';
             return;
         }
-        // Начинаем с +7
         if (value.length >= 1 && (value[0] === '8' || value[0] === '9')) {
             if (value[0] === '8') value = '7' + value.slice(1);
             else if (value[0] === '9') value = '7' + value;
@@ -276,8 +275,14 @@ function validateAndFormatPhone(phone) {
     return { valid: false, message: "Введите корректный российский номер телефона (например, +79189539600 или 8-918-953-96-00)", formatted: null };
 }
 
-// ---------- ОТПРАВКА ЗАЯВКИ (с валидацией) ----------
+// ---------- ОТПРАВКА ЗАЯВКИ (с проверкой пустой корзины) ----------
 function submitOrderRequest() {
+    // Проверка: корзина не должна быть пустой
+    if (cart.length === 0) {
+        showToast('❌ Корзина пуста. Добавьте товары в корзину.');
+        return;
+    }
+
     const nameInput = document.getElementById('orderName')?.value.trim();
     const phoneInput = document.getElementById('orderPhone')?.value.trim();
     const message = document.getElementById('orderMessage')?.value.trim();
@@ -361,7 +366,6 @@ function initPage() {
         if (submitBtn) submitBtn.addEventListener('click', submitOrderRequest);
     }
     
-    // Добавляем маску телефона и запрет цифр в имени
     setPhoneMask();
     preventDigitsInName();
 }

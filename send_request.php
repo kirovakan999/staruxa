@@ -19,13 +19,20 @@ if (!$input) {
     exit;
 }
 
-$name = htmlspecialchars($input['name'] ?? '');
-$phone = htmlspecialchars($input['phone'] ?? '');
-$message = htmlspecialchars($input['message'] ?? '');
+$name = trim(htmlspecialchars($input['name'] ?? ''));
+$phone = trim(htmlspecialchars($input['phone'] ?? ''));
+$message = trim(htmlspecialchars($input['message'] ?? ''));
 $cart = $input['cart'] ?? [];
 
-if (empty($name) || empty($phone)) {
-    echo json_encode(['success' => false, 'message' => 'Имя и телефон обязательны']);
+// Серверная валидация имени
+if (empty($name) || strlen($name) < 2 || !preg_match('/^[a-zA-Zа-яА-ЯёЁ\s\-\.]+$/u', $name)) {
+    echo json_encode(['success' => false, 'message' => 'Введите корректное имя (минимум 2 буквы)']);
+    exit;
+}
+
+// Серверная валидация телефона (формат +7XXXXXXXXXX)
+if (empty($phone) || !preg_match('/^\+7\d{10}$/', $phone)) {
+    echo json_encode(['success' => false, 'message' => 'Введите корректный номер телефона в формате +7XXXXXXXXXX']);
     exit;
 }
 

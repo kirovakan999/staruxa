@@ -194,17 +194,68 @@ function renderCartPage() {
     );
 }
 
-// ---------- ОТПРАВКА ЗАЯВКИ (с проверкой чекбокса) ----------
+// ---------- ФУНКЦИИ ВАЛИДАЦИИ ----------
+function validateName(name) {
+    if (!name || name.length < 2) {
+        return { valid: false, message: "Введите корректное имя (минимум 2 символа)" };
+    }
+    // Разрешены буквы (любых алфавитов), пробелы, дефисы, точки
+    const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s\-\.]+$/;
+    if (!nameRegex.test(name)) {
+        return { valid: false, message: "Имя может содержать только буквы, пробелы, дефисы и точки" };
+    }
+    return { valid: true, message: "" };
+}
+
+function validateAndFormatPhone(phone) {
+    if (!phone) {
+        return { valid: false, message: "Введите номер телефона", formatted: null };
+    }
+    // Удаляем все лишние символы, оставляем только цифры и плюс в начале
+    let cleaned = phone.replace(/[^\d+]/g, '');
+    // Если есть плюс в начале, оставляем его, иначе добавляем
+    let hasPlus = cleaned.startsWith('+');
+    let digits = cleaned.replace(/\+/g, '');
+    
+    // Российские номера: 11 цифр (код страны 7 или 8)
+    if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) {
+        if (digits.startsWith('8')) digits = '7' + digits.substring(1);
+        return { valid: true, message: "", formatted: '+' + digits };
+    }
+    // Если ввели 10 цифр (начиная с 9...), предполагаем код +7
+    if (digits.length === 10 && digits.match(/^9\d{9}$/)) {
+        return { valid: true, message: "", formatted: '+7' + digits };
+    }
+    // Если ввели 7XXXXXXXXXX (11 цифр, начинается с 7)
+    if (digits.length === 11 && digits.startsWith('7')) {
+        return { valid: true, message: "", formatted: '+' + digits };
+    }
+    return { valid: false, message: "Введите корректный российский номер телефона (например, +79189539600 или 8-918-953-96-00)", formatted: null };
+}
+
+// ---------- ОТПРАВКА ЗАЯВКИ (с валидацией) ----------
 function submitOrderRequest() {
-    const name = document.getElementById('orderName')?.value.trim();
-    const phone = document.getElementById('orderPhone')?.value.trim();
+    const nameInput = document.getElementById('orderName')?.value.trim();
+    const phoneInput = document.getElementById('orderPhone')?.value.trim();
     const message = document.getElementById('orderMessage')?.value.trim();
     const consent = document.getElementById('consentCheckbox')?.checked;
 
-    if (!name || !phone) {
-        showToast('❌ Заполните имя и телефон');
+    // Валидация имени
+    const nameValidation = validateName(nameInput);
+    if (!nameValidation.valid) {
+        showToast('❌ ' + nameValidation.message);
+        document.getElementById('orderName')?.focus();
         return;
     }
+
+    // Валидация и форматирование телефона
+    const phoneValidation = validateAndFormatPhone(phoneInput);
+    if (!phoneValidation.valid) {
+        showToast('❌ ' + phoneValidation.message);
+        document.getElementById('orderPhone')?.focus();
+        return;
+    }
+
     if (!consent) {
         showToast('❌ Необходимо согласие на обработку персональных данных');
         return;
@@ -217,10 +268,13 @@ function submitOrderRequest() {
         total: item.price * item.quantity
     }));
 
+    // Отправляем отформатированный номер
+    const formattedPhone = phoneValidation.formatted;
+
     fetch('send_request.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, message, cart: cartData })
+        body: JSON.stringify({ name: nameInput, phone: formattedPhone, message, cart: cartData })
     })
     .then(response => response.json())
     .then(data => {

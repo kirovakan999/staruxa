@@ -517,62 +517,236 @@ section {
     color: #888;
 }
 
+/* ---------- АДАПТИВНОСТЬ (минимальная ширина 320px) ---------- */
+
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .category-filters { justify-content: center; }
-    .filter-btn { padding: 0.4rem 1rem; font-size: 0.8rem; }
-    .cart-item { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-    .cart-item-actions { align-self: flex-end; }
-}
-/* Вместо инлайн-стилей в контейнерах страниц */
-.page-padding {
-    padding: 2rem 0;
+    .category-filters {
+        justify-content: center;
+        gap: 0.6rem;
+    }
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .cart-item-actions {
+        align-self: flex-end;
+    }
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero {
+        padding: 2rem 0;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+    .install-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .advantages {
+        gap: 1rem;
+    }
+    .adv-item {
+        flex: 1 1 160px;
+        padding: 1rem;
+    }
+    .contact-form {
+        padding: 1rem;
+    }
+    .footer {
+        padding: 1.5rem;
+        font-size: 0.85rem;
+    }
+    .footer p {
+        word-break: break-word;
+    }
 }
 
-/* Контакты: сетка карточек */
-.contacts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+/* Мобильные телефоны (минимальная ширина 320px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+    .nav-links {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+    .cart-icon {
+        padding: 4px 12px;
+        font-size: 0.85rem;
+    }
+    .hero-content h1 {
+        font-size: 1.4rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.8rem;
+    }
+    .section-title {
+        font-size: 1.4rem;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .product-card {
+        max-width: 100%;
+    }
+    .product-img {
+        height: 160px;
+    }
+    .product-img img {
+        width: 100%;
+        height: auto;
+        max-height: 160px;
+        object-fit: contain;
+    }
+    .product-title {
+        font-size: 1rem;
+    }
+    .product-price {
+        font-size: 1.2rem;
+    }
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+    .category-filters {
+        gap: 0.4rem;
+    }
+    .install-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-card {
+        padding: 1rem;
+    }
+    .advantages {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .adv-item {
+        flex: auto;
+    }
+    .cart-item-actions {
+        align-self: stretch;
+        justify-content: flex-end;
+    }
+    .cart-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .btn-clear, .contact-form button {
+        width: 100%;
+        text-align: center;
+    }
+    .contact-form input, .contact-form textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    .contact-form label {
+        flex-wrap: wrap;
+        gap: 5px !important;
+    }
+    .contact-form label span {
+        font-size: 0.85rem;
+    }
+    .footer {
+        padding: 1rem;
+    }
+    .footer p {
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+    .toast {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        text-align: center;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .contact-card {
+        padding: 1rem;
+    }
+    .contact-card h3 {
+        font-size: 1.2rem;
+    }
+    .bio-block {
+        padding: 1rem;
+    }
+    .bio-text {
+        font-size: 0.9rem;
+    }
+    .page-padding {
+        padding: 1rem 0;
+    }
 }
 
-/* Карточка контакта */
-.contact-card {
-    background: #1a1a1a;
-    border-radius: 20px;
-    padding: 1.5rem;
-    border: 1px solid #333;
-}
-
-.contact-card h3 {
-    color: #f97316;
-    margin-bottom: 1rem;
-}
-
-/* Описание услуг (отступ) */
-.services-description {
-    margin-bottom: 1rem;
-}
-label{
-    width: 100%;
-    display: flex;
-    margin-bottom: 10px;
-    padding: 0;
-}
-.politika {
-    width: 20px;
-    height: 20px;
-}
-.politika2 {
-    color: #f97316;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-}
-input.politika{
-    width: 20px;
-    margin: 0;
-}
-.conteyner {
-    width: 100%;
-    margin-left: 10px;
-}
+/* Специально для экранов от 320px до 375px */
+@media (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 1.2rem;
+    }
+    .product-title {
+        font-size: 0.9rem;
+    }
+    .product-price {
+        font-size: 1rem;
+    }
+    .btn-add-to-cart {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .filter-btn {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+    }
+}   

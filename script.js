@@ -194,12 +194,61 @@ function renderCartPage() {
     );
 }
 
+// ---------- МАСКА ТЕЛЕФОНА И ЗАПРЕТ ЦИФР В ИМЕНИ ----------
+function setPhoneMask() {
+    const phoneInput = document.getElementById('orderPhone');
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function(e) {
+        let value = this.value.replace(/\D/g, '');
+        if (value.length === 0) {
+            this.value = '';
+            return;
+        }
+        // Начинаем с +7
+        if (value.length >= 1 && (value[0] === '8' || value[0] === '9')) {
+            if (value[0] === '8') value = '7' + value.slice(1);
+            else if (value[0] === '9') value = '7' + value;
+        }
+        let formatted = '+7';
+        if (value.length > 1) {
+            formatted += ' (' + value.substring(1, 4);
+        }
+        if (value.length >= 4) {
+            formatted += ') ' + value.substring(4, 7);
+        }
+        if (value.length >= 7) {
+            formatted += '-' + value.substring(7, 9);
+        }
+        if (value.length >= 9) {
+            formatted += '-' + value.substring(9, 11);
+        }
+        this.value = formatted;
+        const len = this.value.length;
+        this.setSelectionRange(len, len);
+    });
+
+    phoneInput.addEventListener('keydown', function(e) {
+        const currentLength = this.value.replace(/\D/g, '').length;
+        if (currentLength >= 11 && e.key !== 'Backspace' && e.key !== 'Delete' && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+        }
+    });
+}
+
+function preventDigitsInName() {
+    const nameInput = document.getElementById('orderName');
+    if (!nameInput) return;
+    nameInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/[0-9]/g, '');
+    });
+}
+
 // ---------- ФУНКЦИИ ВАЛИДАЦИИ ----------
 function validateName(name) {
     if (!name || name.length < 2) {
         return { valid: false, message: "Введите корректное имя (минимум 2 символа)" };
     }
-    // Разрешены буквы (любых алфавитов), пробелы, дефисы, точки
     const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s\-\.]+$/;
     if (!nameRegex.test(name)) {
         return { valid: false, message: "Имя может содержать только буквы, пробелы, дефисы и точки" };
@@ -211,22 +260,16 @@ function validateAndFormatPhone(phone) {
     if (!phone) {
         return { valid: false, message: "Введите номер телефона", formatted: null };
     }
-    // Удаляем все лишние символы, оставляем только цифры и плюс в начале
     let cleaned = phone.replace(/[^\d+]/g, '');
-    // Если есть плюс в начале, оставляем его, иначе добавляем
-    let hasPlus = cleaned.startsWith('+');
     let digits = cleaned.replace(/\+/g, '');
     
-    // Российские номера: 11 цифр (код страны 7 или 8)
     if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) {
         if (digits.startsWith('8')) digits = '7' + digits.substring(1);
         return { valid: true, message: "", formatted: '+' + digits };
     }
-    // Если ввели 10 цифр (начиная с 9...), предполагаем код +7
     if (digits.length === 10 && digits.match(/^9\d{9}$/)) {
         return { valid: true, message: "", formatted: '+7' + digits };
     }
-    // Если ввели 7XXXXXXXXXX (11 цифр, начинается с 7)
     if (digits.length === 11 && digits.startsWith('7')) {
         return { valid: true, message: "", formatted: '+' + digits };
     }
@@ -240,7 +283,6 @@ function submitOrderRequest() {
     const message = document.getElementById('orderMessage')?.value.trim();
     const consent = document.getElementById('consentCheckbox')?.checked;
 
-    // Валидация имени
     const nameValidation = validateName(nameInput);
     if (!nameValidation.valid) {
         showToast('❌ ' + nameValidation.message);
@@ -248,7 +290,6 @@ function submitOrderRequest() {
         return;
     }
 
-    // Валидация и форматирование телефона
     const phoneValidation = validateAndFormatPhone(phoneInput);
     if (!phoneValidation.valid) {
         showToast('❌ ' + phoneValidation.message);
@@ -268,7 +309,6 @@ function submitOrderRequest() {
         total: item.price * item.quantity
     }));
 
-    // Отправляем отформатированный номер
     const formattedPhone = phoneValidation.formatted;
 
     fetch('send_request.php', {
@@ -320,6 +360,10 @@ function initPage() {
         const submitBtn = document.getElementById('submitOrderBtn');
         if (submitBtn) submitBtn.addEventListener('click', submitOrderRequest);
     }
+    
+    // Добавляем маску телефона и запрет цифр в имени
+    setPhoneMask();
+    preventDigitsInName();
 }
 
 document.addEventListener('DOMContentLoaded', initPage);

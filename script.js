@@ -1,13 +1,13 @@
 // ---------- ТОВАРЫ (30 штук с категориями) ----------
 const products = [
-    // Усилки
+    // Усилители
     { id: 1, name: "Усилитель Audison SR 4.300", brand: "Audison", price: 27990, category: "amplifiers", image: "images/Audison SR 4.300.jpg", specs: "4 x 75 Вт, Class AB", isNew: true },
     { id: 2, name: "Усилитель Helix M FOUR DSP", brand: "Helix", price: 49990, category: "amplifiers", image: "images/Усилитель Helix M FOUR DSP.jpg", specs: "4 x 120 Вт, DSP", isNew: true },
     { id: 3, name: "Усилитель Hertz HCP 4D", brand: "Hertz", price: 18990, category: "amplifiers", image: "images/Усилитель Hertz HCP 4D.jpg", specs: "4 x 80 Вт, Class D", isNew: false },
     { id: 4, name: "Моноблок JL Audio JD1000/1", brand: "JL Audio", price: 35990, category: "amplifiers", image: "images/Моноблок JL Audio JD10001.jpg", specs: "1000 Вт, Class D", isNew: false },
     { id: 5, name: "Усилитель Alpine S2-A55V", brand: "Alpine", price: 15990, category: "amplifiers", image: "images/Усилитель Alpine S2-A55V.jpg", specs: "4 x 50 Вт", isNew: false },
     { id: 6, name: "Усилитель Kicx STM 4.300", brand: "Kicx", price: 12990, category: "amplifiers", image: "images/Усилитель Kicx STM 4.300.jpg", specs: "4 x 80 Вт", isNew: false },
-    // Мафон
+    // Головные устройства
     { id: 7, name: "Магнитола Pioneer MVH-S520BT", brand: "Pioneer", price: 14990, category: "headunits", image: "images/Магнитола Pioneer MVH-S520BT.jpg", specs: "Bluetooth, USB, 1 DIN", isNew: true },
     { id: 8, name: "ГУ Sony XAV-AX5650", brand: "Sony", price: 39990, category: "headunits", image: "images/ГУ Sony XAV-AX5650.jpg", specs: "CarPlay, Android Auto, 6.95''", isNew: true },
     { id: 9, name: "Магнитола Kenwood DMX8021DABS", brand: "Kenwood", price: 54990, category: "headunits", image: "images/Магнитола Kenwood DMX8021DABS.jpg", specs: "CarPlay, DAB+, 6.8''", isNew: false },
@@ -26,12 +26,12 @@ const products = [
     { id: 20, name: "Широкополосные динамики JL Audio C2-650", brand: "JL Audio", price: 15990, category: "speakers", image: "images/Широкополосные динамики JL Audio C2-650.jpg", specs: "16.5 см, 60 Вт", isNew: false },
     { id: 21, name: "Пищалки Audison AP 1", brand: "Audison", price: 5990, category: "speakers", image: "images/Пищалки Audison AP 1.jpg", specs: "1'', 50 Вт, шелк", isNew: false },
     { id: 22, name: "Динамики Pioneer TS-G1320F", brand: "Pioneer", price: 3990, category: "speakers", image: "images/Динамики Pioneer TS-G1320F.jpg", specs: "13 см, 200 Вт", isNew: false },
-    // Шумка
+    // Шумоизоляция
     { id: 23, name: "Шумоизоляция STP Silver", brand: "STP", price: 3490, category: "sounddeadening", image: "images/Шумоизоляция STP Silver.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: true },
     { id: 24, name: "Шумоизоляция Silent Coat 2mm", brand: "Silent Coat", price: 2990, category: "sounddeadening", image: "images/Шумоизоляция Silent Coat 2mm.jpg", specs: "Лист 0.5м x 0.75м, 2 мм", isNew: false },
     { id: 25, name: "Вибропоглотитель Shumoff M2", brand: "Shumoff", price: 2490, category: "sounddeadening", image: "images/iВибропоглотитель Shumoff M2.jpg", specs: "Лист 0.5м x 0.7м, 2 мм", isNew: false },
     { id: 26, name: "Шумоизоляция комплект на 4 двери", brand: "STP", price: 12990, category: "sounddeadening", image: "images/Шумоизоляция комплект на 4 двери.jpg", specs: "4 листа + ролик", isNew: false },
-    // Проводка
+    // Провода
     { id: 27, name: "Акустический кабель 2x2.5 мм² (10м)", brand: "Daxx", price: 1890, category: "wires", image: "images/Акустический кабель 2x2.5 мм² (10м).jpg", specs: "10 м, OFC медь", isNew: false },
     { id: 28, name: "Силовой кабель 4 GA (10м)", brand: "Daxx", price: 2990, category: "wires", image: "images/Силовой кабель 4 GA (10м).jpg", specs: "10 м, 25 мм², OFC", isNew: false },
     { id: 29, name: "RCA кабель 5м (2 канала)", brand: "Audison", price: 1490, category: "wires", image: "images/RCA кабель 5м (2 канала).jpg", specs: "5 м, экранированный", isNew: false },
@@ -205,21 +205,29 @@ function renderCartPage() {
     );
 }
 
-// ---------- ОТПРАВКА ЗАЯВКИ (PHP) ----------
+// ---------- ОТПРАВКА ЗАЯВКИ (PHP) с проверкой согласия ----------
 function submitOrderRequest() {
     const name = document.getElementById('orderName')?.value.trim();
     const phone = document.getElementById('orderPhone')?.value.trim();
     const message = document.getElementById('orderMessage')?.value.trim();
+    const consent = document.getElementById('consentCheckbox')?.checked;
+
     if (!name || !phone) {
         showToast('❌ Заполните имя и телефон');
         return;
     }
+    if (!consent) {
+        showToast('❌ Необходимо согласие на обработку персональных данных');
+        return;
+    }
+
     const cartData = cart.map(item => ({
         name: item.name,
         price: item.price,
         quantity: item.quantity,
         total: item.price * item.quantity
     }));
+
     fetch('send_request.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -228,7 +236,7 @@ function submitOrderRequest() {
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            showToast('✅ Спасибо что заказали у нас товар!');
+            showToast('✅ Заявка отправлена! Мы свяжемся с вами.');
             clearCart();
             renderCartPage();
             updateCartCountDisplay();
@@ -236,13 +244,13 @@ function submitOrderRequest() {
             document.getElementById('orderPhone').value = '';
             document.getElementById('orderMessage').value = '';
         } else {
-            showToast('❌ Ошибка отправки. Попробуйте позже.');
+            showToast('❌ Ошибка отправки: ' + (data.message || 'Попробуйте позже'));
         }
     })
     .catch(() => showToast('❌ Ошибка соединения с сервером'));
 }
 
-
+// ---------- ИНИЦИАЛИЗАЦИЯ СТРАНИЦ ----------
 function initPage() {
     updateCartCountDisplay();
     if (document.getElementById('newProductsGrid')) renderNewProducts();
@@ -267,4 +275,5 @@ function initPage() {
         if (submitBtn) submitBtn.addEventListener('click', submitOrderRequest);
     }
 }
+
 document.addEventListener('DOMContentLoaded', initPage);
